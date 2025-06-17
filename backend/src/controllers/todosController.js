@@ -33,10 +33,10 @@ export async function createTodo(req, res) {
 }
 export async function updateTodo(req, res) {
   try {
-    const { title, content } = req.body;
+    const { title, content, isDone } = req.body;
     const updatedTodo = await Todo.findByIdAndUpdate(
       req.params.id,
-      { title, content },
+      { title, content, isDone },
       { new: true }
     );
     if (!updatedTodo) {
